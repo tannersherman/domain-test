@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "e570dadf-d313-49c5-8055-fe6b6bff6831",
+		"name": "domain-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "proc/test -> will return sys/test from proc listener",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/proc/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"proc",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "proc/extraProcResource -> will return apikit not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/proc/extraProcResource",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"proc",
+						"extraProcResource"
+					]
+				},
+				"description": "Resource is there in proc api but not sys api, so when calling the proc endpoint, you will receive a 404 insinuating that it is using whatever router config's raml is loaded second to validate request"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
